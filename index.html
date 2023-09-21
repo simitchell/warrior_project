@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,37 @@
     <script src="./scripts/main.js" defer></script>
     <title>Warrior Project</title>
 </head>
+
 <body>
     <main>
-        <h1>BATTLE</h1>
-        <p id="hGreeting"></p>
-        <p id="vGreeting"></p>
-        <p id="hAnnounce"></p>
-        <p id="vTaunt"></p>
-        <p id="hAttack"></p>
-        <p id="hHealth"></p>
-        <p id="vAttack"></p>
-        <p id="vHealth"></p>
-        <p id="hFinish"></p>
-        <p id="hFinish2"></p>
-        <p id="hFinish3"></p>
-        <button id="btn0">Hero Greeting</button>
-        <button id="btn1">Villain Greeting</button>
-        <button id="btn2">Hero Announcement</button>
-        <button id="btn3">Villain Taunt</button>
-        <button id="btn4">Hero ATTACK</button>
-        <button id="btn5">Villain ATTACK</button>
-        <button id="btn6">Hero FINISH HIM</button>
+        <h1>THE BATTLE FOR EVERYTHING</h1>
+        <h2>Everything is in the balance. Tyranny runs amock. But alas! A hero emerges... and with him... hope for the
+            world as we know it.</h2>
+        <div class="grid-container">
+            <div class="buttons left">
+                <button id="btn0" class="btnHG">Hero Greeting</button>
+                <button id="btn1" class="btnVG">Villain Greeting</button>
+                <button id="btn2" class="btnHAn">Hero Announcement</button>
+                <button id="btn3" class="btnVT">Villain Taunt</button>
+                <button id="btn4" class="btnHAt">Hero ATTACK</button>
+                <button id="btn5" class="btnVAt">Villain ATTACK</button>
+                <button id="btn6" class="btnHSA">Hero STRIKE AGAIN</button>
+            </div>
+            <div class="dialogue grid-right">
+                <p id="hGreeting" class="pHero"></p>
+                <p id="vGreeting" class="pVillain"></p>
+                <p id="hAnnounce" class="pHero"></p>
+                <p id="vTaunt" class="pVillain"></p>
+                <p id="hAttack" class="pHero"></p>
+                <p id="hHealth" class="pHero"></p>
+                <p id="vAttack" class="pVillain"></p>
+                <p id="vHealth" class="pVillain"></p>
+                <p id="hFinish" class="pHero"></p>
+                <p id="hFinish2" class="pHero"></p>
+                <p id="hFinish3" class="pHero"></p>
+            </div>
+        </div>
     </main>
 </body>
+
 </html>
