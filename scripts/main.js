@@ -4,9 +4,9 @@
 // WARRIOR CLASS
 class Warrior {
   constructor(characterName, health = [], power) {
-      this.characterName = characterName;
-      this.health = health;
-      this.power = power;
+    this.characterName = characterName;
+    this.health = health;
+    this.power = power;
   }
 }
 
@@ -35,8 +35,9 @@ class Hero extends Warrior {
   };
 
   heroAttack2(otherPerson) {
-    console.log(`${this.characterName} strikes ${otherPerson.characterName}, and deals a deadly blow with Mjolnir. ${otherPerson.characterName} disintegrates into the ether and is dead.  `);
-    console.log('Evil is defeated.  The god of Thunder cracks a Miller Lite in victory.  *BELCH*');
+    document.querySelector('#hFinish').innerText = `${this.characterName} raises Mjolnir high over his head... a gutteral war cry eminates from deep within him as he brings the hammer downwards and strikes ${otherPerson.characterName} across the face. It is a clean blow, and a deadly one.  Without drama, ${otherPerson.characterName} disintegrates into the ether and is gone.`;
+    document.querySelector('#hFinish2').innerText = `The finality of this moment lingers heavily in the atmosphere.  The only audible sound is our Hero's heavy breathing.  He pauses in the silence for a long moment while the new reality of a world without villainous ${otherPerson.characterName} settles into existence.  Evil is defeated this day.  The god of Thunder cracks a Miller Lite in victory.  His work here is done.`;
+    document.querySelector('#hFinish3').innerText = '... belch...';
   };
 }
 
@@ -65,12 +66,12 @@ class Villain extends Warrior {
 }
 
 // Instantiate a new Hero and a new Villain
-const thor = new Hero ('Thor', 30, 15, true);
-const javascript =  new Villain ('JavaScript', 25, 10, true);
+const thor = new Hero('Thor', 30, 15, true);
+const javascript = new Villain('JavaScript', 25, 10, true);
 
 // Console log to confirm their accuracy
-console.log(thor);
-console.log(javascript);
+// console.log(thor);
+// console.log(javascript);
 
 // Greetings to one another in preparation for battle
 // thor.heroGreet(javascript);
@@ -87,7 +88,7 @@ console.log(javascript);
 // javascript.villainAttack(thor);
 
 // Hero attacks Villain again
-thor.heroAttack2(javascript);
+// thor.heroAttack2(javascript);
 
 const btn0 = document.getElementById('btn0');
 const btn1 = document.getElementById('btn1');
@@ -98,29 +99,29 @@ const btn5 = document.getElementById('btn5');
 const btn6 = document.getElementById('btn6');
 
 btn0.addEventListener('click', () => {
-    thor.heroGreet(javascript);
+  thor.heroGreet(javascript);
 });
 
 btn1.addEventListener('click', () => {
-    javascript.villainGreet(thor);
+  javascript.villainGreet(thor);
 });
 
 btn2.addEventListener('click', () => {
-    thor.heroAnnounce(javascript);
+  thor.heroAnnounce(javascript);
 });
 
 btn3.addEventListener('click', () => {
-    javascript.villainTaunt(thor);
+  javascript.villainTaunt(thor);
 });
 
 btn4.addEventListener('click', () => {
-    thor.heroAttack(javascript);
+  thor.heroAttack(javascript);
 });
 
 btn5.addEventListener('click', () => {
-    javascript.villainAttack(thor);
+  javascript.villainAttack(thor);
 });
 
 btn6.addEventListener('click', () => {
-    thor.heroAttack2(javascript);
+  thor.heroAttack2(javascript);
 });
