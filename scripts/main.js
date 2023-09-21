@@ -72,9 +72,35 @@ class Villain extends Warrior {
   }
 };
 
+// Zombie Class, an extension of Warrior
+class Zombie extends Warrior {
+  constructor(characterName, attributes, health, power, weapon) {
+    super(characterName, attributes, health, power, weapon);
+  }
+
+  zombieGreet() {
+    document.querySelector('#vGreeting').innerText = `growl`
+  }
+
+  zombieTaunt(otherPerson) {
+    document.querySelector('#vTaunt').innerText = `ughhmfbhfhfhfffhhhthttthffk.`
+  }
+
+  zombieAttack() {
+    otherPerson.health = otherPerson.health - this.power;
+    document.querySelector('#vAttack').innerText = `${this.characterName} bites ${otherPerson.characterName}.`;
+    if (otherPerson.alive()) {
+      document.querySelector('#vHealth').innerText = `${otherPerson.characterName} has ${otherPerson.health} health remaining.`;
+      return;
+    }
+    document.querySelector('#Finish').innerText = `${this.characterName} bites your jugular.  Blood sprays everywhere, you give up the fight and die.  It was inevitable.`;
+  }
+}
+
 // Instantiate a new Hero and a new Villain
 const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
-const javascript = new Villain('JavaScript', 'complicated', 35, 10, 'DOCUMENT OBJECT MODEL');
+const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
+const unDead = new Villain('The Mysterious Undead', null, null, 1, null);
 
 // Assign buttons to constants
 const btn0 = document.getElementById('btn0');
