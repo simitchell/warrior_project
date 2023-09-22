@@ -55,15 +55,27 @@ class Villain extends Warrior {
 
   villainGreet() {
     document.querySelector('#vGreeting').innerText = `I am mighty ${this.characterName} the ${this.attributes}.  With a power level of ${this.power} and a health of ${this.health}, I stand in defiance of lesser beings who have spent lifetimes trying to unlock my weaknesses in vain.  I wield the ${this.weapon} and my power knows no bounds!`;
+    if (myVillain.characterName === "The Mysterious Undead") {
+      document.querySelector('#vGreeting').innerText = `growl`
+    }
   }
 
   villainTaunt(otherPerson) {
     document.querySelector('#vTaunt').innerText = `You are gravely mistaken, puny ${otherPerson.characterName}.  I hope you are prepared for your inevitable death!  Concede now or I shall take it upon me to bring it thusly.  Now shudder in terror, for when my ${this.weapon} refreshes this universe you will disappear and be forgotten for all time!`;
+    if (myVillain.characterName === "The Mysterious Undead") {
+      document.querySelector('#vTaunt').innerText = 'ughhmfbhfhfhfffhhhthttthffk'
+    }
+    if (myVillain.characterName === "Darth Vader") {
+      document.querySelector('#vTaunt').innerText = `Do not underestimate the power of the dark side, young ${otherPerson.characterName}.  Soon The Empire will rule this galaxy and you shall be wiped from existence.  I know you are scared, your feelings betray you... *extends hand in preparation for ${this.weapon}*...`
+    }
   }
 
   villainAttack(otherPerson) {
     otherPerson.health = otherPerson.health - this.power;
     document.querySelector('#vAttack').innerText = `A deep rumbling emenates from the ground as ${this.characterName} strikes ${otherPerson.characterName}, and ${otherPerson.characterName} is hit!`;
+    if (myVillain.characterName === "The Mysterious Undead") {
+      document.querySelector('#vAttack').innerText = `${this.characterName} bites ${otherPerson.characterName}.`;
+    }
     if (otherPerson.alive()) {
       document.querySelector('#vHealth').innerText = `${otherPerson.characterName} has ${otherPerson.health} health remaining.`;
       return;
@@ -71,41 +83,41 @@ class Villain extends Warrior {
     document.querySelector('#Finish').innerText = `That's it.  ${this.characterName} has defeated ${otherPerson.characterName}.  Everything sucks.  Game Over.  Everyone go home.`;
     document.querySelector('#Finish2').innerText = '';
     document.querySelector('#Finish3').innerText = '';
+    if (myVillain.characterName === "The Mysterious Undead") {
+      document.querySelector('#Finish').innerText = `${this.characterName} bites ${otherPerson.characterName}'s  jugular.  Blood sprays everywhere, ${otherPerson.characterName} gives up the fight and dies.  It was inevitable.`;
+    } 
   }
 };
 
 // Zombie Class, an extension of Warrior
-class Zombie extends Warrior {
-  constructor(characterName, attributes, health, power, weapon) {
-    super(characterName, attributes, power, weapon);
-    this.health = Infinity;
-  }
+// class Zombie extends Warrior {
+//   constructor(characterName, attributes, health, power, weapon) {
+//     super(characterName, attributes, power, weapon);
+//     this.health = Infinity;
+//   }
 
-  zombieGreet() {
-    document.querySelector('#vGreeting').innerText = `growl`
-  }
+//   zombieGreet() {
+//     document.querySelector('#vGreeting').innerText = `growl`
+//   }
 
-  zombieTaunt(otherPerson) {
-    document.querySelector('#vTaunt').innerText = `ughhmfbhfhfhfffhhhthttthffk.`
-  }
+//   zombieTaunt(otherPerson) {
+//     document.querySelector('#vTaunt').innerText = `ughhmfbhfhfhfffhhhthttthffk`
+//   }
 
-  zombieAttack() {
-    otherPerson.health = otherPerson.health - this.power;
-    document.querySelector('#vAttack').innerText = `${this.characterName} bites ${otherPerson.characterName}.`;
-    if (otherPerson.alive()) {
-      document.querySelector('#vHealth').innerText = `${otherPerson.characterName} has ${otherPerson.health} health remaining.`;
-      return;
-    }
-    document.querySelector('#Finish').innerText = `${this.characterName} bites your jugular.  Blood sprays everywhere, you give up the fight and die.  It was inevitable.`;
-  }
-}
+//   zombieAttack() {
+//     otherPerson.health = otherPerson.health - this.power;
+//     document.querySelector('#vAttack').innerText = `${this.characterName} bites ${otherPerson.characterName}.`;
+//     if (otherPerson.alive()) {
+//       document.querySelector('#vHealth').innerText = `${otherPerson.characterName} has ${otherPerson.health} health remaining.`;
+//       return;
+//     }
+//     document.querySelector('#Finish').innerText = `${this.characterName} bites your jugular.  Blood sprays everywhere, you give up the fight and die.  It was inevitable.`;
+//   }
+// }
 
-// let state = {
-//   myHero: null,
-//   myVillain: null
-// };
 
 // Assign buttons to constants
+
 const btnSubmit = document.getElementById('btnSubmit');
 const btn0 = document.getElementById('btn0');
 const btn1 = document.getElementById('btn1');
@@ -117,11 +129,12 @@ const btn5 = document.getElementById('btn5');
 // btnSubmit instantiates all heroes and villains, then selects them depending on the user's input
 let myHero;
 let myVillain;
+let myZombie;
 btnSubmit.addEventListener('click', () => {
   event.preventDefault();
   function selHero() {
     const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
-    const sam = new Hero('Sam', 'developer of web', 35, 5, 'MacBook Pro');
+    const sam = new Hero('Sam', 'Developer of Web', 35, 5, 'MacBook Pro');
     const frodo = new Hero('Frodo Baggins', 'Ring-bearer', 60, 35, 'The One Ring')
     if (document.querySelector('#heroSelect').value === "1") {
       myHero = thor;
@@ -138,7 +151,7 @@ btnSubmit.addEventListener('click', () => {
 
   function selVillain() {
     const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
-    const zombie = new Villain('The Mysterious Undead', null, null, 1, null);
+    const zombie = new Villain('The Mysterious Undead', null, Infinity, 2, null);
     const vader = new Villain('Darth Vader', 'Sith Lord', 60, 25, 'Force Choke');
     if (document.querySelector('#villainSelect').value === "1") {
       myVillain = javascript;
