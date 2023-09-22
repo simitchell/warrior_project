@@ -42,6 +42,10 @@ fieldset {
     font-size: 1.2rem;
 }
 
+.heroSelect, .villainSelect, .setUpGame {
+    margin: auto;
+}
+
 select {
     margin: 10px 0 0 0;
     position: relative;

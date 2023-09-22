@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 // WARRIOR CLASS
 class Warrior {
@@ -100,11 +100,10 @@ class Zombie extends Warrior {
   }
 }
 
-// Instantiate a new Hero and a new Villain... from the dropdown? - UPDATE this is now on line 120
-// const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
-// const sam = new Hero('Sam', 'developer of web', 35, 5, 'MacBook Pro');
-// const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
-// const zombie = new Villain('The Mysterious Undead', null, null, 1, null);
+// let state = {
+//   myHero: null,
+//   myVillain: null
+// };
 
 // Assign buttons to constants
 const btnSubmit = document.getElementById('btnSubmit');
@@ -114,43 +113,51 @@ const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
 const btn5 = document.getElementById('btn5');
-const btn6 = document.getElementById('btn6');
 
-// The actions behind button clicks.  Calls functions, reveals the next button in the story
+// btnSubmit instantiates all heroes and villains, then selects them depending on the user's input
+let myHero;
+let myVillain;
 btnSubmit.addEventListener('click', () => {
   event.preventDefault();
   function selHero() {
-    let myHero;
     const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
     const sam = new Hero('Sam', 'developer of web', 35, 5, 'MacBook Pro');
+    const frodo = new Hero('Frodo Baggins', 'Ring-bearer', 60, 35, 'The One Ring')
     if (document.querySelector('#heroSelect').value === "1") {
       myHero = thor;
     }
     if (document.querySelector('#heroSelect').value === "2") {
       myHero = sam;
     }
+    if (document.querySelector('#heroSelect').value === "3") {
+      myHero = frodo;
+    }
     console.log(myHero);
     return myHero;
   }
 
   function selVillain() {
-    let myVillain;
     const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
     const zombie = new Villain('The Mysterious Undead', null, null, 1, null);
+    const vader = new Villain('Darth Vader', 'Sith Lord', 60, 25, 'Force Choke');
     if (document.querySelector('#villainSelect').value === "1") {
       myVillain = javascript;
     }
     if (document.querySelector('#villainSelect').value === "2") {
       myVillain = zombie;
     }
+    if (document.querySelector('#villainSelect').value === "3") {
+      myVillain = vader;
+    }
     console.log(myVillain);
     return myVillain
   }
 
-  const myHero = selHero();
+  selHero();
   selVillain();
 });
 
+// btn0 through btn5 are clicked to proceed in the story.  They trigger text and the next consecutive button to display on the DOM
 btn0.addEventListener('click', () => {
   event.preventDefault();
   myHero.heroGreet(myVillain);
@@ -210,9 +217,3 @@ btn5.addEventListener('click', () => {
   event.preventDefault();
   myVillain.villainAttack(myHero);
 });
-
-
-
-// btn6.addEventListener('click', () => {
-//   thor.heroAttack2(javascript);
-// });
