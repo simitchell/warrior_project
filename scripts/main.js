@@ -77,7 +77,8 @@ class Villain extends Warrior {
 // Zombie Class, an extension of Warrior
 class Zombie extends Warrior {
   constructor(characterName, attributes, health, power, weapon) {
-    super(characterName, attributes, health, power, weapon);
+    super(characterName, attributes, power, weapon);
+    this.health = Infinity;
   }
 
   zombieGreet() {
@@ -99,17 +100,14 @@ class Zombie extends Warrior {
   }
 }
 
-// Instantiate a new Hero and a new Villain... from the dropdown?
-// const x = document.getElementById('heroMenu');
-// const y = x.value;
-// console.log(x);
-// console.log(y);
-
-const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
-const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
-const unDead = new Villain('The Mysterious Undead', null, null, 1, null);
+// Instantiate a new Hero and a new Villain... from the dropdown? - UPDATE this is now on line 120
+// const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
+// const sam = new Hero('Sam', 'developer of web', 35, 5, 'MacBook Pro');
+// const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
+// const zombie = new Villain('The Mysterious Undead', null, null, 1, null);
 
 // Assign buttons to constants
+const btnSubmit = document.getElementById('btnSubmit');
 const btn0 = document.getElementById('btn0');
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
@@ -119,9 +117,43 @@ const btn5 = document.getElementById('btn5');
 const btn6 = document.getElementById('btn6');
 
 // The actions behind button clicks.  Calls functions, reveals the next button in the story
+btnSubmit.addEventListener('click', () => {
+  event.preventDefault();
+  function selHero() {
+    let myHero;
+    const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
+    const sam = new Hero('Sam', 'developer of web', 35, 5, 'MacBook Pro');
+    if (document.querySelector('#heroSelect').value === "1") {
+      myHero = thor;
+    }
+    if (document.querySelector('#heroSelect').value === "2") {
+      myHero = sam;
+    }
+    console.log(myHero);
+    return myHero;
+  }
+
+  function selVillain() {
+    let myVillain;
+    const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
+    const zombie = new Villain('The Mysterious Undead', null, null, 1, null);
+    if (document.querySelector('#villainSelect').value === "1") {
+      myVillain = javascript;
+    }
+    if (document.querySelector('#villainSelect').value === "2") {
+      myVillain = zombie;
+    }
+    console.log(myVillain);
+    return myVillain
+  }
+
+  const myHero = selHero();
+  selVillain();
+});
+
 btn0.addEventListener('click', () => {
   event.preventDefault();
-  thor.heroGreet(javascript);
+  myHero.heroGreet(myVillain);
   function show(a) {
     const element = document.getElementById('btn1');
     element.classList.toggle(a);
@@ -132,7 +164,7 @@ btn0.addEventListener('click', () => {
 
 btn1.addEventListener('click', () => {
   event.preventDefault();
-  javascript.villainGreet(thor);
+  myVillain.villainGreet(myHero);
   function show(a) {
     const element = document.getElementById('btn2');
     element.classList.toggle(a);
@@ -143,7 +175,7 @@ btn1.addEventListener('click', () => {
 
 btn2.addEventListener('click', () => {
   event.preventDefault();
-  thor.heroAnnounce(javascript);
+  myHero.heroAnnounce(myVillain);
   function show(a) {
     const element = document.getElementById('btn3');
     element.classList.toggle(a);
@@ -154,7 +186,7 @@ btn2.addEventListener('click', () => {
 
 btn3.addEventListener('click', () => {
   event.preventDefault();
-  javascript.villainTaunt(thor);
+  myVillain.villainTaunt(myHero);
   function show(a) {
     const element = document.getElementById('btn4');
     element.classList.toggle(a);
@@ -165,7 +197,7 @@ btn3.addEventListener('click', () => {
 
 btn4.addEventListener('click', () => {
   event.preventDefault();
-  thor.heroAttack(javascript);
+  myHero.heroAttack(myVillain);
   function show(a) {
     const element = document.getElementById('btn5');
     element.classList.toggle(a);
@@ -176,13 +208,7 @@ btn4.addEventListener('click', () => {
 
 btn5.addEventListener('click', () => {
   event.preventDefault();
-  javascript.villainAttack(thor);
-  // function show(a) {
-  //   const element = document.getElementById('btn6');
-  //   element.classList.toggle(a);
-  // }
-  // if (document.getElementById('btn6').classList.contains('btnHSA'))
-  // show('btnHSA')
+  myVillain.villainAttack(myHero);
 });
 
 
