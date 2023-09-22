@@ -14,52 +14,54 @@
         <h1>THE BATTLE FOR EVERYTHING</h1>
         <h2>Everything is in the balance. Tyranny runs amock. But alas! A hero emerges... and with him... hope for the
             world as we know it.</h2>
-        <div class="menuSection">
-            <div class="heroSelect">
-                <label>Select a Hero
-                    <select name="heroMenu" id="heroSelect" class="dropdown">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                    </select>
-                </label>
+        <form>
+            <fieldset class="menuSection">
+                <div class="heroSelect">
+                    <label>Select a Hero
+                        <select name="heroMenu" id="heroSelect" class="dropdown">
+                            <option value="">(select one)</option>
+                            <option value="1">Thor</option>
+                            <option value="2">TBD</option>
+                            <option value="3">TBD</option>
+                         </select>
+                    </label>
+                </div>
+                <div class="villainSelect">
+                    <label>Select a Villain
+                        <select name="villainMenu" id="villainSelect" class="dropdown">
+                            <option value ="">(select one)</option>
+                            <option value ="1">JavaScript</option>
+                            <option value ="2">Zombie</option>
+                            <option value ="3">TBD</option>
+                        </select>
+                    </label>
+                </div>
+            </fieldset>
+            <div class="grid-container">
+                <div class="buttons left">
+                    <button id="btn0" class="btnHG">Hero Greeting</button>
+                    <button id="btn1" class="btnVG">Villain Greeting</button>
+                    <button id="btn2" class="btnHAn">Hero Announcement</button>
+                    <button id="btn3" class="btnVT">Villain Taunt</button>
+                    <button id="btn4" class="btnHAt">Hero ATTACK</button>
+                    <button id="btn5" class="btnVAt">Villain ATTACK</button>
+                    <!-- <button id="btn6" class="btnHSA">Hero STRIKE AGAIN</button> -->
+                </div>
+                <div class="dialogue grid-right">
+                    <p id="hGreeting" class="pHero"></p>
+                    <p id="vGreeting" class="pVillain"></p>
+                    <p id="hAnnounce" class="pHero"></p>
+                    <p id="vTaunt" class="pVillain"></p>
+                    <p id="hAttack" class="pHero"></p>
+                    <p id="hHealth" class="pHero"></p>
+                    <p id="vAttack" class="pVillain"></p>
+                    <p id="vHealth" class="pVillain"></p>
+                    <p id="Finish" class="pNarr"></p>
+                    <p id="Finish2" class="pNarr"></p>
+                    <p id="Finish3" class="pNarr"></p>
+                </div>
             </div>
-            <div class="villainSelect">
-                <label>Select a Villain
-                    <select name="villainMenu" id="villainSelect" class="dropdown">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                    </select>
-                </label>
-            </div>
-        </div>
-        <div class="grid-container">
-            <div class="buttons left">
-                <button id="btn0" class="btnHG">Hero Greeting</button>
-                <button id="btn1" class="btnVG">Villain Greeting</button>
-                <button id="btn2" class="btnHAn">Hero Announcement</button>
-                <button id="btn3" class="btnVT">Villain Taunt</button>
-                <button id="btn4" class="btnHAt">Hero ATTACK</button>
-                <button id="btn5" class="btnVAt">Villain ATTACK</button>
-                <!-- <button id="btn6" class="btnHSA">Hero STRIKE AGAIN</button> -->
-            </div>
-            <div class="dialogue grid-right">
-                <p id="hGreeting" class="pHero"></p>
-                <p id="vGreeting" class="pVillain"></p>
-                <p id="hAnnounce" class="pHero"></p>
-                <p id="vTaunt" class="pVillain"></p>
-                <p id="hAttack" class="pHero"></p>
-                <p id="hHealth" class="pHero"></p>
-                <p id="vAttack" class="pVillain"></p>
-                <p id="vHealth" class="pVillain"></p>
-                <p id="Finish" class="pHero"></p>
-                <p id="Finish2" class="pHero"></p>
-                <p id="Finish3" class="pHero"></p>
-            </div>
-        </div>
+        </form>
     </main>
 </body>
 

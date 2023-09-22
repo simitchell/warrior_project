@@ -69,6 +69,8 @@ class Villain extends Warrior {
       return;
     }
     document.querySelector('#Finish').innerText = `That's it.  ${this.characterName} has defeated ${otherPerson.characterName}.  Everything sucks.  Game Over.  Everyone go home.`;
+    document.querySelector('#Finish2').innerText = '';
+    document.querySelector('#Finish3').innerText = '';
   }
 };
 
@@ -97,7 +99,12 @@ class Zombie extends Warrior {
   }
 }
 
-// Instantiate a new Hero and a new Villain
+// Instantiate a new Hero and a new Villain... from the dropdown?
+// const x = document.getElementById('heroMenu');
+// const y = x.value;
+// console.log(x);
+// console.log(y);
+
 const thor = new Hero('Thor', 'Asgardian god of Thunder', 30, 15, 'Mjolnir');
 const javascript = new Villain('JavaScript', 'complicated', 30, 10, 'DOCUMENT OBJECT MODEL');
 const unDead = new Villain('The Mysterious Undead', null, null, 1, null);
@@ -113,6 +120,7 @@ const btn6 = document.getElementById('btn6');
 
 // The actions behind button clicks.  Calls functions, reveals the next button in the story
 btn0.addEventListener('click', () => {
+  event.preventDefault();
   thor.heroGreet(javascript);
   function show(a) {
     const element = document.getElementById('btn1');
@@ -123,6 +131,7 @@ btn0.addEventListener('click', () => {
 });
 
 btn1.addEventListener('click', () => {
+  event.preventDefault();
   javascript.villainGreet(thor);
   function show(a) {
     const element = document.getElementById('btn2');
@@ -133,6 +142,7 @@ btn1.addEventListener('click', () => {
 });
 
 btn2.addEventListener('click', () => {
+  event.preventDefault();
   thor.heroAnnounce(javascript);
   function show(a) {
     const element = document.getElementById('btn3');
@@ -143,6 +153,7 @@ btn2.addEventListener('click', () => {
 });
 
 btn3.addEventListener('click', () => {
+  event.preventDefault();
   javascript.villainTaunt(thor);
   function show(a) {
     const element = document.getElementById('btn4');
@@ -153,6 +164,7 @@ btn3.addEventListener('click', () => {
 });
 
 btn4.addEventListener('click', () => {
+  event.preventDefault();
   thor.heroAttack(javascript);
   function show(a) {
     const element = document.getElementById('btn5');
@@ -163,6 +175,7 @@ btn4.addEventListener('click', () => {
 });
 
 btn5.addEventListener('click', () => {
+  event.preventDefault();
   javascript.villainAttack(thor);
   // function show(a) {
   //   const element = document.getElementById('btn6');
@@ -171,6 +184,8 @@ btn5.addEventListener('click', () => {
   // if (document.getElementById('btn6').classList.contains('btnHSA'))
   // show('btnHSA')
 });
+
+
 
 // btn6.addEventListener('click', () => {
 //   thor.heroAttack2(javascript);
