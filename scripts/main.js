@@ -134,7 +134,6 @@ let snd = document.getElementById('konamiCode');
 let bgm = document.getElementById('bgm');
 
 // btnSubmit instantiates all heroes and villains, then selects them depending on the user's input, displays myHero and myVillain on screen
-
 btnSubmit.addEventListener('click', () => {
   event.preventDefault();
   selHero();
@@ -209,6 +208,10 @@ function displayOutput() {
   document.getElementById('hOutput').innerText = `${myHero.characterName}`;
   document.getElementById('vOutput').innerText = `${myVillain.characterName}`;
   document.getElementById('vs').innerText = "vs.";
+  document.getElementById('hDispHealth').innerText = `Health: ${myHero.health}`;
+  document.getElementById('hDispPower').innerText =  `Power: ${myHero.power}`;
+  document.getElementById('vDispHealth').innerText = `Health: ${myVillain.health}`;
+  document.getElementById('vDispPower').innerText = `Power: ${myVillain.power}`;
 };
 // sets user's input as myHero
 function selHero() {
@@ -249,6 +252,7 @@ function selVillain() {
 var pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 var current = 0;
 
+// related to ?
 var keyHandler = function (event) {
 
 	// If the key isn't in the pattern, or isn't the current key in the pattern, reset
@@ -263,8 +267,9 @@ var keyHandler = function (event) {
 	// If complete, alert and reset
 	if (pattern.length === current) {
 		current = 0;
-		window.alert('Achievement Unlocked.  You are an OG.');
+		window.alert('Achievement Unlocked.  You are awarded OG status.  A powerful feeling surges through your body...');
     playBgm();
+    gameGenie();
 	}
 
 };
@@ -281,3 +286,11 @@ function playSound() {
 function playBgm() {
   bgm.play();
 };
+
+// function to make myHero power level 1000
+function gameGenie() {
+  console.log(myHero.power);
+  myHero.power = 1000;
+  console.log(myHero.power);
+  document.getElementById('hDispPower').innerText = `Power: ${myHero.power}`;
+}

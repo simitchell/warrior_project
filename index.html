@@ -13,9 +13,11 @@
 
 <body>
     <main>
-        <h1>THE BATTLE FOR EVERYTHING</h1>
-        <h2>Everything is in the balance. Villainy runs amock. But alas! A hero emerges... and with him... hope for the
-            world as we know it.</h2>
+        <div class="header">
+            <h1>THE BATTLE FOR EVERYTHING</h1>
+            <h2>Everything is in the balance. Villainy runs amock. But alas! A hero emerges... and with him... hope
+                for the world as we know it.</h2>
+        </div>
         <form>
             <fieldset class="menuSection">
                 <div class="heroSelect">
@@ -25,16 +27,16 @@
                             <option value="1">Thor</option>
                             <option value="2">Sam</option>
                             <option value="3">Frodo</option>
-                         </select>
+                        </select>
                     </label>
                 </div>
                 <div class="villainSelect">
                     <label>Select a Villain
                         <select name="villainMenu" id="villainSelect" class="dropdown">
-                            <option value ="">(select one)</option>
-                            <option value ="1">JavaScript</option>
-                            <option value ="2">Zombie</option>
-                            <option value ="3">Darth Vader</option>
+                            <option value="">(select one)</option>
+                            <option value="1">JavaScript</option>
+                            <option value="2">Zombie</option>
+                            <option value="3">Darth Vader</option>
                         </select>
                     </label>
                 </div>
@@ -43,7 +45,17 @@
                 </div>
             </fieldset>
             <div id="selectionOutput" class="hvOutput">
-                <span id="hOutput"></span><span id="vs"></span><span id="vOutput"></span>
+                <p id="hOutput"></p>
+                <p id="vs"></p>
+                <p id="vOutput"></p>
+            </div>
+            <div id="selectionOutput2" class="hvOutput">
+                <p id="hDispHealth"></p>
+                <p id="vDispHealth"></p>
+            </div>
+            <div id="selectionOutput3" class="hvOutput">
+                <p id="hDispPower"></p>
+                <p id="vDispPower"></p>
             </div>
             <div class="grid-container">
                 <div class="buttons left">
