@@ -53,6 +53,16 @@ select {
     height: 1.6rem;
 }
 
+.hvOutput {
+    display: inline-flex;
+    flex-direction: row;
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 3fr;

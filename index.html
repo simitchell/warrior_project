@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css" />
     <script src="./scripts/main.js" defer></script>
+    <audio id="konamiCode" src="./audio/Contra.mp3" preload="auto"></audio>
+    <audio id="bgm" src="./audio/03 Area 1- Jungle, Area 7- Hanger.mp3" preload="auto"></audio>
     <title>Warrior Project</title>
 </head>
 
@@ -40,6 +42,9 @@
                     <button id="btnSubmit" type="submit">Let's begin</button>
                 </div>
             </fieldset>
+            <div id="selectionOutput" class="hvOutput">
+                <span id="hOutput"></span><span id="vs"></span><span id="vOutput"></span>
+            </div>
             <div class="grid-container">
                 <div class="buttons left">
                     <button id="btn0" class="btnHG">Hero Greeting</button>
