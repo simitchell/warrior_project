@@ -38,7 +38,7 @@ fieldset {
     margin-bottom: 1.2rem;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 680px;
     text-align: center;
     max-width: 960px;
     justify-content: space-evenly;
@@ -64,7 +64,7 @@ select {
 .hvOutput3 {
     display: inline-flex;
     flex-direction: row;
-    width: inherit;
+    width: 600px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: auto;
@@ -72,6 +72,7 @@ select {
     justify-content: space-between;
     font-size: 1.2rem;
     align-items: center;
+    height: 30px;
 }
 
 .grid-container {
